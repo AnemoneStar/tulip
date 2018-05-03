@@ -1,18 +1,18 @@
 import Router = require("koa-router")
 import UsersRouter from "./users"
 import PostsRouter from "./posts"
-import { apiSuccess, apiFailed } from "../../utils/apiResponse";
+import { apiSuccess, apiFailed } from "../../utils/apiResponse"
 
 const router = new Router()
 
 router.use(async (ctx, next) => {
     try {
         await next()
-    } catch(e) {
+    } catch (e) {
         console.error(e)
         ctx.status = 503
         ctx.body = apiFailed([
-            { type: "normal", message: "server-side-error"}
+            { type: "normal", message: "server-side-error"},
         ])
     }
 })

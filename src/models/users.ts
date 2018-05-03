@@ -1,6 +1,6 @@
 import mongoose = require("mongoose")
 import uniqueValidator = require("mongoose-unique-validator")
-import validateRegex from "../utils/validateRegex";
+import validateRegex from "../utils/validateRegex"
 
 export interface IUser {
     name: string
@@ -30,9 +30,10 @@ export const UserSchema = new mongoose.Schema({
     timestamps: true,
 })
 
-UserSchema.pre<mongoose.Document & IUserModel>("validate", function (next) {
-    if (this.screenName)
+UserSchema.pre<mongoose.Document & IUserModel>("validate", function(next) {
+    if (this.screenName) {
         this.screenNameLower = this.screenName.toLowerCase()
+    }
     next()
 })
 

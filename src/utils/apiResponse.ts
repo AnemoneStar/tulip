@@ -13,16 +13,17 @@ export function apiFailed<T extends ApiError>(errors: T[]) {
 }
 
 export function apiFailedValidation(error: any, nameMapper: {[key: string]: string} = {}) {
-    if (error.name != "ValidationError") {
+    if (error.name !== "ValidationError") {
         console.error("what!? this error is not ValidationError")
         throw error
     }
     const errors = error.errors
 
     return apiFailed(Object.keys(errors).map(key => {
+        // tslint:disable-next-line
         const error = errors[key]
         var message = errors[key].message
-        switch(error.kind) {
+        switch (error.kind) {
             case "required":
                 message = "required"
                 break
@@ -33,11 +34,11 @@ export function apiFailedValidation(error: any, nameMapper: {[key: string]: stri
                 message = "too-long"
                 break
             default:
-                message = "unknown,"+message
+                message = "unknown," + message
         }
-        if (error.name == "CastError") message = "invalid-type"
+        if (error.name === "CastError") { message = "invalid-type" }
         console.log(error)
-        var name = nameMapper[key] || key
+        const name = nameMapper[key] || key
         return {
             type: "validate",
             name,

@@ -1,9 +1,9 @@
 import Router = require("koa-router")
-import { apiSuccess, apiFailed, apiFailedValidation } from "../../utils/apiResponse";
-import getAuthUser from "../../utils/getAuthUser";
-import { Post } from "../../models/posts";
+import { apiSuccess, apiFailed, apiFailedValidation } from "../../utils/apiResponse"
+import getAuthUser from "../../utils/getAuthUser"
+import { Post } from "../../models/posts"
 
-const router = new Router
+const router = new Router()
 
 router.get("/", async ctx => {
     ctx.body = apiSuccess(await Post.find())
@@ -23,7 +23,7 @@ router.post("/", async ctx => {
 
     try {
         await post.validate()
-    } catch(e) {
+    } catch (e) {
         ctx.status = 400
         ctx.body = apiFailedValidation(e)
     }

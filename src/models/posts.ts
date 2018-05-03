@@ -1,5 +1,5 @@
 import mongoose = require("mongoose")
-import { IUser, IUserModel } from "./users";
+import { IUser, IUserModel } from "./users"
 
 export interface IPost {
     text: string
@@ -17,7 +17,7 @@ export const PostSchema = new mongoose.Schema({
     text: { type: String, required: true, maxlength: 500 },
     user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "users" },
 }, {
-    timestamps: true
+    timestamps: true,
 })
 
 export const Post = mongoose.model<IPostModel>("posts", PostSchema)

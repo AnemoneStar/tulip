@@ -1,12 +1,12 @@
 import Router = require("koa-router")
-import { apiSuccess, apiFailed, ApiErrorValidate, apiFailedValidation } from "../../utils/apiResponse";
+import { apiSuccess, apiFailed, ApiErrorValidate, apiFailedValidation } from "../../utils/apiResponse"
 import bcrypt = require("bcrypt")
 import $ from "cafy"
-import { ValidationError } from "mongoose";
-import { User } from "../../models/users";
+import { ValidationError } from "mongoose"
+import { User } from "../../models/users"
 import mongoose = require("mongoose")
 
-const router = new Router
+const router = new Router()
 
 router.get("/", async ctx => {
     ctx.body = apiSuccess(await User.find())

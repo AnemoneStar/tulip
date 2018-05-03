@@ -1,5 +1,5 @@
 import Koa = require("koa")
-import { IUserModel, User } from "../models/users";
+import { IUserModel, User } from "../models/users"
 
 declare module "koa" {
     interface Context {

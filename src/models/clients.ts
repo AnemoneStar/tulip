@@ -1,5 +1,5 @@
 import mongoose = require("mongoose")
-import { IUserModel, IUser } from "./users";
+import { IUserModel, IUser } from "./users"
 
 export interface IClient {
     name: string

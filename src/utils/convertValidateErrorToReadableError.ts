@@ -3,9 +3,10 @@ export function convertValidateErrorToReadableError(error: any) {
         throw error
     }
     const errorsArr = Object.entries(error.errors).map(a => {
-        var [name, e] = a as [string, any]
+        var name = a[0]
+        const e = a[1]
         var message = e.message as string
-        switch(e.kind) {
+        switch (e.kind) {
             case "required":
                 message = "この項目は必須です"
                 break
@@ -17,9 +18,9 @@ export function convertValidateErrorToReadableError(error: any) {
                 break
             default:
                 console.log(e, e.kind)
-                if (error.name === "CastError") message = "値が異常です"
+                if (error.name === "CastError") { message = "値が異常です" }
         }
-        switch(name) {
+        switch (name) {
             case "screenNameLower":
                 name = "screenName"
                 break
