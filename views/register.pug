@@ -1,0 +1,27 @@
+extends _content
+include _mixin
+
+block head
+    title 新規登録 - Tulip
+    script(src="/assets/validateError.js")
+
+block body
+    h1 新規登録
+    +errorAlert()
+    form(method="POST")
+        .form-group(data-error=errors.name)
+            label 名前
+            input.form-control(type="text", name="name", placeholder="50文字まで", required, maxlength=50, value=body.name)
+        .form-group(data-error=errors.screenName)
+            label スクリーンネーム (あとから変更不可)
+            .input-group
+                .input-group-prepend
+                    span.input-group-text @
+                input.form-control(type="text", name="screenName", placeholder="20文字まで、半角英数字とアンダーバーのみ使用可能", required, maxlength=20, pattern="^[A-Za-z0-9_]{1,20}$", value=body.screenName)
+        .form-group(data-error=errors.password)
+            label パスワード
+            input.form-control(type="password", name="password", placeholder="5文字以上(推奨: 10文字以上)", required, minlength=5)
+        .form-group(data-error=errors.inviteCode)
+            label 招待コード
+            input.form-control(type="text", name="inviteCode", required, value=body.inviteCode)
+        input.btn.btn-primary(type="submit", value="登録")

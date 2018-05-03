@@ -1,0 +1,7 @@
+mixin errorAlert()
+    if Object.keys(errors).length
+        .alert.alert-danger
+            p 以下のエラーが発生しました: 
+            ul
+                for error in Object.entries(errors)
+                    li= error

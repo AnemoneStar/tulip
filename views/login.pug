@@ -1,0 +1,19 @@
+extends _content
+include _mixin
+
+block head
+    title ログイン - Tulip
+    script(src="/assets/validateError.js")
+
+block body
+    h1 ログイン
+    p: a(href="/register") 新規登録はこちら
+    +errorAlert()
+    form(method="POST", action="/login")
+        .form-group(data-error=errors.screenName)
+            label スクリーンネーム
+            input.form-control(type="text", name="screenName", maxlength=20, pattern="^[A-Za-z0-9_]{1,20}$", value=screenName)
+        .form-group(data-error=errors.password)
+            label パスワード
+            input.form-control(type="password", name="password")
+        input.btn.btn-primary(type="submit", value="ログイン")
