@@ -4,6 +4,10 @@
   "main": "index.js",
   "repository": "git@github.com:rinsuki/tulip.git",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint 'src/*.ts' 'src/**/*.ts'"
+  },
   "devDependencies": {
     "@types/bcrypt": "^1.0.0",
     "@types/koa": "^2.0.45",

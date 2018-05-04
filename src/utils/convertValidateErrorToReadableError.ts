@@ -4,7 +4,7 @@ export function convertValidateErrorToReadableError(error: any) {
     }
     const errorsArr = Object.entries(error.errors).map(a => {
         var name = a[0]
-        const e = a[1]
+        const e = a[1] as any
         var message = e.message as string
         switch (e.kind) {
             case "required":
