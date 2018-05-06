@@ -1,0 +1,26 @@
+extends ../../_content
+include ../../_mixin
+
+block head
+    title 新規作成 - あなたのアプリケーション - 開発者センター - Tulip
+    script(src="/assets/validateError.js")
+
+block body
+    h1 新規作成
+    +errorAlert()
+    form(method="POST")
+        .form-group(data-error=errors.csrfToken)
+            input(type="hidden", name="csrfToken", value=csrfToken)
+        .form-group(data-error=errors.name)
+            label アプリケーションの名前
+            input.form-control(type="text", name="name", placeholder="20文字まで", required, maxlength=20)
+        .form-group(data-error=errors.description)
+            label アプリケーションの説明
+            input.form-control(type="text", name="description", placeholder="200文字まで", required, maxlength=200)
+        .form-group(data-error=errors.website)
+            label Webサイト(任意)
+            input.form-control(type="url", name="website", placeholder="256文字まで", maxlength=256)
+        .form-group(data-error=errors.redirectUris)
+            label リダイレクトURI
+            textarea.form-control(name="redirectUris", rows=5)
+        input.btn.btn-primary(type="submit", value="作成")

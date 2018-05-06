@@ -4,6 +4,16 @@ block head
 
 block body
     h1 Tulip
-    a.btn.btn-primary(href="/login") ログイン
-    | &nbsp;
-    a.btn.btn-secondary(href="/register") 新規登録
+    if user
+        h2 アプリケーション
+        ul
+            li: a(href="/apps") アプリストア
+            li: a(href="/dev") 開発者センター
+            li: a(href="/apps/installed") 連携したアプリケーション
+        h2 その他
+        ul
+            li: a(href="/logout") ログアウト
+    else
+        a.btn.btn-primary(href="/login") ログイン
+        | &nbsp;
+        a.btn.btn-secondary(href="/register") 新規登録

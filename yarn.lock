@@ -1276,6 +1276,10 @@ random-bytes@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/random-bytes/-/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
 
+rangestr@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/rangestr/-/rangestr-0.0.1.tgz#f72ff9246f10f2a7d7c16e14616f617be2c2635a"
+
 raw-body@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.3.2.tgz#bcd60c77d3eb93cde0050295c3f379389bc88f89"
@@ -1358,6 +1362,13 @@ rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
+rndstr@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rndstr/-/rndstr-1.0.0.tgz#77e66fa8f9b4836853fdd91e50719591bb67d349"
+  dependencies:
+    rangestr "0.0.1"
+    seedrandom "2.4.2"
+
 safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
@@ -1369,6 +1380,10 @@ safer-buffer@^2.1.0:
 sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+seedrandom@2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-2.4.2.tgz#18d78c41287d13aff8eadb29e235938b248aa9ff"
 
 semver@^5.1.0, semver@^5.3.0:
   version "5.5.0"

@@ -1,0 +1,10 @@
+extends ../../_content
+block head
+    title あなたのアプリケーション - 開発者センター - Tulip
+
+block body
+    h1 あなたのアプリケーション
+    a.btn.btn-primary.mb-2(href="/dev/apps/new") 新規作成
+    ul
+        for app in apps
+            li: a(href="/dev/apps/"+app.id) #{app.name}

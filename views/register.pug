@@ -9,6 +9,7 @@ block body
     h1 新規登録
     +errorAlert()
     form(method="POST")
+        input(type="hidden", name="csrfToken", value=csrfToken)
         .form-group(data-error=errors.name)
             label 名前
             input.form-control(type="text", name="name", placeholder="50文字まで", required, maxlength=50, value=body.name)

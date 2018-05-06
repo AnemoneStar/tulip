@@ -1,0 +1,22 @@
+extends ../../_content
+block head
+    title #{app.name} - あなたのアプリケーション - 開発者センター - Tulip
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js")
+    script(src="/assets/copyToClipboardButton.js")
+
+block body
+    h1= app.name
+    p= app.description
+    h2 Client ID / Secret
+    .form-group
+        label Client ID
+        .input-group
+            input.form-control(type="text", value=app.clientId, readonly)
+            .input-group-append
+                button.btn.btn-secondary.clipboard-copy-button(type="button") Copy
+    .form-group
+        label Client Secret
+        .input-group
+            input.form-control(type="password", value=app.clientSecret, readonly)
+            .input-group-append
+                button.btn.btn-secondary.clipboard-copy-button(type="button") Copy

@@ -10,6 +10,8 @@ block body
     p: a(href="/register") 新規登録はこちら
     +errorAlert()
     form(method="POST", action="/login")
+        .form-group(data-error=errors.csrfToken)
+            input(type="hidden", name="csrfToken", value=csrfToken)
         .form-group(data-error=errors.screenName)
             label スクリーンネーム
             input.form-control(type="text", name="screenName", maxlength=20, pattern="^[A-Za-z0-9_]{1,20}$", value=screenName)

@@ -1,0 +1,17 @@
+extends ../_content
+block head
+    title OAuth認証 - Tulip
+
+block body
+
+    h1 OAuth認証
+    p アプリ「
+        strong= app.name
+        | 」にアカウントの利用を許可しますか?
+    h2 要求されている権限
+    ul
+        li 「ユーザー」に関連する操作
+            ul
+                li あなたのプロフィールを更新する
+                li 誰かをフォローする
+                li フォローリクエストに答える

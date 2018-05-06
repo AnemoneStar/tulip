@@ -35,6 +35,7 @@
     "mongoose": "^5.0.15",
     "mongoose-unique-validator": "^2.0.0",
     "reflect-metadata": "^0.1.12",
+    "rndstr": "^1.0.0",
     "typegoose": "^5.0.0"
   }
 }
