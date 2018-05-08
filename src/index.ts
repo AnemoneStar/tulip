@@ -37,8 +37,18 @@ const pug = new koaPug({
 pug.use(app as any)
 
 app.use(async (ctx, next) => {
+    if (ctx.query.next && !(ctx.query.next as string).startsWith("/")) {
+        ctx.status = 400
+        ctx.body = "invalid next query"
+        return
+    }
+    await next()
+})
+
+app.use(async (ctx, next) => {
     ctx.state.errors = {}
     ctx.state.body = {}
+    ctx.state.url = ctx.url
     await next()
 })
 

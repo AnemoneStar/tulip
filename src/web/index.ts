@@ -26,7 +26,7 @@ router.get("/", async ctx => {
 })
 
 router.get("/login", async ctx => {
-    if (ctx.session!.userId) { return ctx.redirect("/") }
+    if (ctx.session!.userId) { return ctx.redirect(ctx.query.next || "/") }
     ctx.render("login")
 })
 
@@ -62,7 +62,7 @@ router.post("/login", async ctx => {
     ctx.session!.userId = user.id
     ctx.session!.save()
 
-    ctx.redirect("/")
+    ctx.redirect(ctx.query.next || "/")
 })
 
 router.get("/register", async ctx => {

@@ -1,6 +1,6 @@
 import mongoose = require("mongoose")
 import { IUserModel, IUser } from "./users"
-import { generateClientKey } from "../utils/generateClientKey"
+import { generateClientKey } from "../utils/generateKey"
 
 export interface IApplication {
     name: string

@@ -9,7 +9,7 @@ block body
     h1 ログイン
     p: a(href="/register") 新規登録はこちら
     +errorAlert()
-    form(method="POST", action="/login")
+    form(method="POST")
         .form-group(data-error=errors.csrfToken)
             input(type="hidden", name="csrfToken", value=csrfToken)
         .form-group(data-error=errors.screenName)

@@ -2,16 +2,27 @@ extends ../_content
 block head
     title OAuth認証 - Tulip
 
-block body
+mixin scopeTree(scope)
+    - console.log(scope, scope.children)
+    li #{scope.name}
+        if scope.children
+            ul
+                for child in scope.children
+                        +scopeTree(child)
 
+block body
     h1 OAuth認証
     p アプリ「
         strong= app.name
         | 」にアカウントの利用を許可しますか?
     h2 要求されている権限
+    - console.log(scopes)
     ul
-        li 「ユーザー」に関連する操作
-            ul
-                li あなたのプロフィールを更新する
-                li 誰かをフォローする
-                li フォローリクエストに答える
+        for scope in scopes
+            +scopeTree(scope)
+    if user
+        form(method="POST")
+            input(type="hidden", name="requestHash", value=hash)
+            input.btn.btn-primary(type="submit", value="許可する") 
+    else
+        a(href="/login?next="+encodeURIComponent(url)) まずログインしてください
